@@ -1,5 +1,13 @@
+import DateFilter from "./DateFilter";
+
 const date = () => {
-  return <div>date</div>;
+  return (
+    <div>
+      <div>
+        <DateFilter />
+      </div>
+    </div>
+  );
 };
 
 export default date;
