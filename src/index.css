@@ -1,17 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .date-filter-container {
   display: flex;
   flex-direction: column;
@@ -73,8 +59,52 @@ button:hover {
   background-color: #45a049;
 }
 
+/* Style the input box */
+input[type="date"] {
+  appearance: none; /* Remove default styles for consistency */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 12px; /* Inner spacing */
+  font-size: 14px; /* Font size */
+  color: #333; /* Text color */
+  outline: none; /* Remove focus outline */
+  width: 150px; /* Set the input width */
+  cursor: pointer; /* Show pointer cursor */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+input[type="date"]:hover {
+  border-color: #007bff; /* Blue border on hover */
+}
+
+/* Focus effect */
+input[type="date"]:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4); /* Subtle glow effect */
+}
+
+/* Placeholder text color */
+input[type="date"]::placeholder {
+  color: #999; /* Gray placeholder text */
+}
+
+/* Customize the calendar icon (works in some browsers like Chrome) */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
+  background-color: transparent; /* Transparent background */
+  color: #007bff; /* Icon color */
+  cursor: pointer; /* Pointer cursor */
+  height: 100%; /* Full height of the input */
+  width: auto; /* Auto width */
+  border-radius: 50%; /* Round shape */
+  margin-right: 5px; /* Adjust spacing */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for the calendar icon */
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
 }
 
 .date-input-container {
@@ -91,4 +121,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+
+.date-picker-input {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="date"]::-webkit-clear-button {
+  display: none;
+  -webkit-appearance: none;
 }

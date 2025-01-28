@@ -1,10 +1,17 @@
 import React, { useRef, useState } from "react";
 import { AiOutlineCalendar } from "react-icons/ai";
 
+const resetTimeToMidnight = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
 const DateFilter = ({ data }) => {
-  const [startDate, setStartDate] = useState("");
+  const [startDate, setStartDate] = useState(resetTimeToMidnight(new Date()));
   const [today, setToday] = useState(new Date());
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState(resetTimeToMidnight(new Date()));
+
   const firstInputRef = useRef(null);
   const secondInputRef = useRef(null);
 
@@ -18,6 +25,8 @@ const DateFilter = ({ data }) => {
   const handleIconClick = (inputRef) => {
     if (inputRef.current) {
       inputRef.current.showPicker();
+    } else {
+      inputRef.current.showPicker();
     }
   };
 
@@ -29,8 +38,10 @@ const DateFilter = ({ data }) => {
             ref={firstInputRef}
             type="date"
             value={startDate}
+            min={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             style={{ maxWidth: "120px" }}
+            placeholder={startDate}
           />
           <span className="" onClick={() => handleIconClick(firstInputRef)}>
             <AiOutlineCalendar size={25} color="#ccc" />
